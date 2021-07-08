@@ -28,6 +28,7 @@ app.post('/token',(req, res) => {
 
 app.delete('/logout',(req,res) => {
    refreshTokens = refreshTokens.filter(t => t!=req.body.token);  // removing that token
+    // there is an issue, we still have the original token valid..we need to invalidate somehow..
     res.sendStatus(204);
 });
 

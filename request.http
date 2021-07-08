@@ -16,7 +16,7 @@ Content-Type: application/json
 
 ### The beaer token is what is got from above login
 GET http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hbmkiLCJpYXQiOjE2MjU3ODAwMTIsImV4cCI6MTYyNTc4MDE5Mn0.VRSVR6fwlLdTUBdAHds3oYgUu-DMkyWmy_KBsyeU4kI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hbmkiLCJpYXQiOjE2MjU3ODE0MjQsImV4cCI6MTYyNTc4MTYwNH0.IAOS-VxPU1ztvN5ey0zT8x1NcCAO7XIw_gCQBRAJKDY
 
 
 ### use refresh token when the above token expiries in 3 min
@@ -24,9 +24,17 @@ POST http://localhost:4000/token
 Content-Type: application/json
 
 {
-"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hbmkiLCJpYXQiOjE2MjU3Nzk1MTB9.BcAHBYL_IiNpCmRo6ZwUWyiia8tbUWY37rIHHipu0dE"
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hbmkiLCJpYXQiOjE2MjU3ODEzODJ9.JE1svw_bwkxWoGb23tfZPe497Pu2cqCCq7UVW4xp7R8"
 }
 
+
+### To delete the refresh token make an explicit logout call
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+
+{
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hbmkiLCJpYXQiOjE2MjU3ODE0MjQsImV4cCI6MTYyNTc4MTYwNH0.IAOS-VxPU1ztvN5ey0zT8x1NcCAO7XIw_gCQBRAJKDY"
+}
 
 ###
 POST http://localhost:4000/login
