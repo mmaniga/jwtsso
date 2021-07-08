@@ -16,8 +16,12 @@ Content-Type: application/json
 
 ### The beaer token is what is got from above login
 GET http://localhost:3000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hbmkiLCJpYXQiOjE2MjU3ODE0MjQsImV4cCI6MTYyNTc4MTYwNH0.IAOS-VxPU1ztvN5ey0zT8x1NcCAO7XIw_gCQBRAJKDY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hbmkiLCJpYXQiOjE2MjU3ODMyNjIsImV4cCI6MTYyNTc4MzQ0Mn0.P7kkgX_SpkOOkG5zeVLJ9PU0fSTgeOiNrE-9Yt7samI
+### The beaer token is what is got from above login
+### Another domain and service
 
+GET http://localhost:5000/books
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hbmkiLCJpYXQiOjE2MjU3ODMyNjIsImV4cCI6MTYyNTc4MzQ0Mn0.P7kkgX_SpkOOkG5zeVLJ9PU0fSTgeOiNrE-9Yt7samI
 
 ### use refresh token when the above token expiries in 3 min
 POST http://localhost:4000/token
