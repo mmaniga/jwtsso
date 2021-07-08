@@ -1,0 +1,41 @@
+
+###
+### This returs two token one authToken and one refreshToken
+### use auth token to make request to /posts, it will expirt after 3 min
+### after 3 min the calls would fails, during that time, use the refresh token u got from this one and
+### invoke the /token call, that would return a new authToken,
+### use that token to make the call it would succeed, every 3 min we need to refresh the token using the original refresh token
+### logic is refresh token does not expire, we need to manually evict it by making a logout call
+
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+"userName": "Mani"
+}
+
+### The beaer token is what is got from above login
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hbmkiLCJpYXQiOjE2MjU3ODAwMTIsImV4cCI6MTYyNTc4MDE5Mn0.VRSVR6fwlLdTUBdAHds3oYgUu-DMkyWmy_KBsyeU4kI
+
+
+### use refresh token when the above token expiries in 3 min
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hbmkiLCJpYXQiOjE2MjU3Nzk1MTB9.BcAHBYL_IiNpCmRo6ZwUWyiia8tbUWY37rIHHipu0dE"
+}
+
+
+###
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+  "userName": "Arkrish"
+}
+
+### The Bearer token is what got from Arkrish login.
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkFya3Jpc2giLCJpYXQiOjE2MjU3NzI1MjJ9.c2wom2aqRI-av5PO580Bc6emj1rj8qtW0wDUCZJrFPA
